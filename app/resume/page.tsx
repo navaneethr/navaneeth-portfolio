@@ -7,7 +7,7 @@ export default function ResumePage() {
           Resume
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          Download or view Navaneeth's professional resume, including experience, skills, and education.
+          Download or view Navaneeth&apos;s professional resume, including experience, skills, and education.
         </p>
         <Button asChild className="mt-4">
           <a href="/resume.pdf" download>
