@@ -11,14 +11,11 @@ export function SiteHeader() {
   const lastScrollY = useRef(0)
 
   useEffect(() => {
+    const SCROLL_THRESHOLD = 64 // px, adjust as needed for your header height
     const handleScroll = () => {
       if (typeof window === "undefined") return
-      const header = document.querySelector('header')
-      if (!header) return
-      const headerHeight = header.getBoundingClientRect().height
       const currentScrollY = window.scrollY
-      // Only hide if content has scrolled past the header
-      if (currentScrollY < headerHeight) {
+      if (currentScrollY < SCROLL_THRESHOLD) {
         setShow(true)
       } else if (currentScrollY > lastScrollY.current) {
         setShow(false)
