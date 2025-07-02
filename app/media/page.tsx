@@ -45,7 +45,7 @@ export default function MediaPage() {
       <div className="mb-8 w-full text-left">
         <h1 className="text-3xl font-bold mb-2">My Creative World</h1>
         <p className="text-muted-foreground text-lg max-w-5xl">
-          Outside of my professional life, I find immense joy in exploring creative pursuits that fuel my curiosity and passion. Whether it's capturing moments through photography and video, sharing stories and inspiration on Instagram, or composing and mixing music, these projects are where I truly express myself. I adore the process of making, experimenting, and connecting with others through art, sound, and visuals. This page is a window into the creative side of my life—one that keeps me inspired, balanced, and always learning.
+          Outside of my professional life, I find immense joy in exploring creative pursuits that fuel my curiosity and passion. Whether it&apos;s capturing moments through photography and video, sharing stories and inspiration on Instagram, or composing and mixing music, these projects are where I truly express myself. I adore the process of making, experimenting, and connecting with others through art, sound, and visuals. This page is a window into the creative side of my life—one that keeps me inspired, balanced, and always learning.
         </p>
       </div>
       <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-3">
