@@ -7,30 +7,20 @@ import { useEffect, useRef, useState } from "react"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 export function SiteHeader() {
-  const [show, setShow] = useState(true)
-  const lastScrollY = useRef(0)
 
+  // Translucent effect on scroll
+  const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
-    const SCROLL_THRESHOLD = 64 // px, adjust as needed for your header height
-    const handleScroll = () => {
-      if (typeof window === "undefined") return
-      const currentScrollY = window.scrollY
-      if (currentScrollY < SCROLL_THRESHOLD) {
-        setShow(true)
-      } else if (currentScrollY > lastScrollY.current) {
-        setShow(false)
-      } else {
-        setShow(true)
-      }
-      lastScrollY.current = currentScrollY
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10)
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <header
-      className={`bg-background sticky top-0 z-40 w-full transition-transform duration-300 ${show ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`bg-background sticky top-0 z-40 w-full transition-colors duration-300 ${scrolled ? 'backdrop-blur bg-background/80 shadow-md' : ''}`}
     >
       <div className="container flex flex-col sm:flex-row h-auto sm:h-16 items-center sm:justify-between py-2 sm:py-0">
         <MainNav items={siteConfig.mainNav} />

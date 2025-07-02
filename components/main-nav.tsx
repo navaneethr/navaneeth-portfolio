@@ -16,7 +16,7 @@ export function MainNav({ items }: MainNavProps) {
   const pathname = usePathname();
   return (
     <div className="flex flex-col items-center gap-6 md:gap-10 w-full">
-      <Card className="flex items-center justify-between w-auto px-4 py-2">
+      <Card className="flex items-center justify-between w-auto px-4 py-2 mx-2">
         <nav className="flex items-center gap-4">
           {items?.length ? (
             items.map((item) => (
