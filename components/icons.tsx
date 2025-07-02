@@ -4,16 +4,22 @@ import {
   Moon,
   SunMedium,
   Twitter,
+  Phone,
+  Mail,
   type Icon as LucideIcon,
 } from "lucide-react"
+import { FileText } from "./file-text-icon"
 
 export type Icon = LucideIcon
 
 export const Icons = {
+  phone: Phone,
+  mail: Mail,
   linkedin: Linkedin,
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,
+  fileText: FileText,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

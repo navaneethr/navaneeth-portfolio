@@ -32,6 +32,14 @@ export default function IndexPage() {
           <Icons.gitHub className="mr-2 h-4 w-4" />
           GitHub
         </Link>
+        <a
+          href="/resume.pdf"
+          className={buttonVariants({ variant: "outline" })}
+          download
+        >
+          <Icons.fileText className="mr-2 h-4 w-4" />
+          Resume
+        </a>
       </div>
     </section>
   )
