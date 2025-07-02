@@ -1,14 +1,40 @@
+"use client"
 import Link from "next/link"
-
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import { useEffect, useRef, useState } from "react"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
-
 export function SiteHeader() {
+  const [show, setShow] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window === "undefined") return
+      const header = document.querySelector('header')
+      if (!header) return
+      const headerHeight = header.getBoundingClientRect().height
+      const currentScrollY = window.scrollY
+      // Only hide if content has scrolled past the header
+      if (currentScrollY < headerHeight) {
+        setShow(true)
+      } else if (currentScrollY > lastScrollY.current) {
+        setShow(false)
+      } else {
+        setShow(true)
+      }
+      lastScrollY.current = currentScrollY
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <header className="bg-background sticky top-0 z-40 w-full">
+    <header
+      className={`bg-background sticky top-0 z-40 w-full transition-transform duration-300 ${show ? 'translate-y-0' : '-translate-y-full'}`}
+    >
       <div className="container flex flex-col sm:flex-row h-auto sm:h-16 items-center sm:justify-between py-2 sm:py-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center">
@@ -54,3 +80,4 @@ export function SiteHeader() {
     </header>
   )
 }
+
