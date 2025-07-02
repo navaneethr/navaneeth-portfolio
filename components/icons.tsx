@@ -1,3 +1,4 @@
+import { Linkedin } from "lucide-react"
 import {
   LucideProps,
   Moon,
@@ -9,6 +10,7 @@ import {
 export type Icon = LucideIcon
 
 export const Icons = {
+  linkedin: Linkedin,
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,

@@ -1,41 +1,46 @@
-import * as React from "react"
+"use client"
+import React, { useState } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 
 import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
+import { Card } from "@/components/ui/card"
 
 interface MainNavProps {
   items?: NavItem[]
 }
 
 export function MainNav({ items }: MainNavProps) {
+  const pathname = usePathname();
   return (
-    <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
-      </Link>
-      {items?.length ? (
-        <nav className="flex gap-6">
-          {items?.map(
-            (item, index) =>
-              item.href && (
+    <div className="flex flex-col items-center gap-6 md:gap-10 w-full">
+      <Card className="flex items-center justify-between w-auto px-4 py-2">
+        <nav className="flex items-center gap-4">
+          {items?.length ? (
+            items.map((item) => (
+              item.href ? (
                 <Link
-                  key={index}
+                  key={item.href}
                   href={item.href}
                   className={cn(
-                    "flex items-center text-sm font-medium text-muted-foreground",
+                    "text-sm font-medium transition-colors hover:text-foreground",
+                    pathname === item.href && "font-bold text-primary",
                     item.disabled && "cursor-not-allowed opacity-80"
                   )}
                 >
                   {item.title}
                 </Link>
-              )
+              ) : null
+            ))
+          ) : (
+            <span className="text-sm text-muted-foreground">No links</span>
           )}
         </nav>
-      ) : null}
+      </Card>
     </div>
   )
 }
+
+
