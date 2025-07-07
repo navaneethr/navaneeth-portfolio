@@ -51,10 +51,29 @@ export default function IndexPage() {
               initial="initial"
               animate="animate"
               variants={staggerContainer}
-              className="grid gap-8 lg:grid-cols-2 lg:gap-12"
+              className="text-center"
             >
+              {/* Hero Image */}
+              <motion.div variants={fadeInUp} className="mb-8">
+                <div className="relative mx-auto w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl" />
+                  <div className="relative overflow-hidden rounded-full border-4 border-primary/20 shadow-2xl">
+                    <img
+                      src="/nav.jpg"
+                      alt="Navaneeth"
+                      className="w-full h-full object-cover scale-110 transition-transform duration-500 hover:scale-125"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  {/* Floating elements */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full animate-pulse" />
+                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-primary/40 rounded-full animate-pulse delay-1000" />
+                  <div className="absolute top-1/2 -right-8 w-4 h-4 bg-primary/50 rounded-full animate-pulse delay-500" />
+                </div>
+              </motion.div>
+
               <motion.div
-                variants={fadeInLeft}
+                variants={fadeInUp}
                 className="flex flex-col justify-center space-y-6"
               >
                 <div className="space-y-4">
@@ -75,7 +94,7 @@ export default function IndexPage() {
                   </motion.p>
                   <motion.p
                     variants={fadeInUp}
-                    className="max-w-2xl text-lg text-muted-foreground"
+                    className="mx-auto max-w-2xl text-lg text-muted-foreground"
                   >
                     Passionate about building high-performance, scalable web
                     applications with modern technologies. Experienced in
@@ -84,7 +103,7 @@ export default function IndexPage() {
                 </div>
                 <motion.div
                   variants={fadeInUp}
-                  className="flex flex-wrap gap-4"
+                  className="flex flex-wrap justify-center gap-4"
                 >
                   <Link
                     href="/contact"
@@ -100,6 +119,20 @@ export default function IndexPage() {
                     })}
                   >
                     View My Work
+                  </Link>
+                  <Link
+                    href="https://firecracker-gpt.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonVariants({
+                      variant: "secondary",
+                      size: "lg",
+                    })}
+                  >
+                    <Icons.externalLink className="mr-2 h-4 w-4" />
+                    <span>
+                      Firecracker GPT by <b>Nav</b>
+                    </span>
                   </Link>
                 </motion.div>
               </motion.div>
@@ -215,7 +248,8 @@ export default function IndexPage() {
                     </div>
                     <CardTitle className="text-xl">Contact</CardTitle>
                     <CardDescription>
-                      Let&apos;s connect and discuss opportunities or collaborations
+                      Let&apos;s connect and discuss opportunities or
+                      collaborations
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 mt-auto">
