@@ -1,13 +1,19 @@
-import { Linkedin } from "lucide-react"
 import {
+  Code,
+  Edit,
+  Linkedin,
+  FileText as LucideFileText,
   LucideProps,
+  Mail,
   Moon,
+  Phone,
+  Play,
   SunMedium,
   Twitter,
-  Phone,
-  Mail,
+  User,
   type Icon as LucideIcon,
 } from "lucide-react"
+
 import { FileText } from "./file-text-icon"
 
 export type Icon = LucideIcon
@@ -19,6 +25,10 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,
+  user: User,
+  code: Code,
+  play: Play,
+  post: Edit,
   fileText: FileText,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>

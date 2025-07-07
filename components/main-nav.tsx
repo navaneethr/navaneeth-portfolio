@@ -16,9 +16,9 @@ interface MainNavProps {
 export function MainNav({ items }: MainNavProps) {
   const pathname = usePathname()
   return (
-    <div className="flex flex-col items-center gap-6 md:gap-10 w-full">
-      <Card className="flex items-center justify-between w-auto px-6 py-3 mx-2">
-        <nav className="flex items-center gap-6 relative">
+    <div className="flex flex-col items-center gap-4 md:gap-6 lg:gap-10 w-full">
+      <Card className="flex items-center justify-between w-auto px-2 py-2 mx-1 sm:px-4 sm:py-3 sm:mx-2 md:px-6 md:py-3 md:mx-2">
+        <nav className="flex items-center gap-2 sm:gap-4 md:gap-6 relative">
           {items?.length ? (
             items.map((item) =>
               item.href ? (
@@ -26,10 +26,11 @@ export function MainNav({ items }: MainNavProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-semibold touch-manipulation",
+                    "text-xs sm:text-sm font-semibold touch-manipulation",
                     "focus:text-primary focus:outline-none",
                     "relative flex items-center justify-center min-w-0",
                     "hover:text-primary/80",
+                    "whitespace-nowrap px-1 sm:px-2",
                     pathname === item.href && "text-primary",
                     pathname !== item.href && "text-muted-foreground",
                     item.disabled && "cursor-not-allowed opacity-80"
