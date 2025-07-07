@@ -1,6 +1,9 @@
 ---
 title: "Convert a nested snake_case object to camelCase"
+description: "A technical interview question about transforming snake_case objects to camelCase using JavaScript recursion and object manipulation techniques."
 date: "2025-07-02"
+tags:
+  ["javascript", "interview", "algorithms", "recursion", "object-manipulation"]
 ---
 
 I was recently interviewed by somebody at a company, and they asked me this question, I'll give you the backstory.
@@ -19,13 +22,10 @@ const snake = {
   last_name: "Doe",
   address: {
     street_name: "Main St",
-    city_name: "Metropolis"
+    city_name: "Metropolis",
   },
-  favorite_colors: [
-    { color_name: "red" },
-    { color_name: "blue" }
-  ]
-};
+  favorite_colors: [{ color_name: "red" }, { color_name: "blue" }],
+}
 ```
 
 And I need to convert that to:
@@ -36,13 +36,10 @@ const camel = {
   lastName: "Doe",
   address: {
     streetName: "Main St",
-    cityName: "Metropolis"
+    cityName: "Metropolis",
   },
-  favoriteColors: [
-    { colorName: "red" },
-    { colorName: "blue" }
-  ]
-};
+  favoriteColors: [{ colorName: "red" }, { colorName: "blue" }],
+}
 ```
 
 Sounds fair enough.
@@ -51,7 +48,7 @@ I started out with a utility function for converting snake_case to camelCase whi
 
 ```js
 function toCamelCase(str) {
-  return str.replace(/_([a-z])/g, (g) => g[1].toUpperCase());
+  return str.replace(/_([a-z])/g, (g) => g[1].toUpperCase())
 }
 ```
 
@@ -60,15 +57,15 @@ Then I move on to writing another function which takes in any datatype and conve
 ```js
 function deepCamelCase(obj) {
   if (Array.isArray(obj)) {
-    return obj.map(deepCamelCase);
-  } else if (obj !== null && typeof obj === 'object') {
+    return obj.map(deepCamelCase)
+  } else if (obj !== null && typeof obj === "object") {
     return Object.keys(obj).reduce((acc, key) => {
-      const camelKey = toCamelCase(key);
-      acc[camelKey] = deepCamelCase(obj[key]);
-      return acc;
-    }, {});
+      const camelKey = toCamelCase(key)
+      acc[camelKey] = deepCamelCase(obj[key])
+      return acc
+    }, {})
   }
-  return obj;
+  return obj
 }
 ```
 
