@@ -84,7 +84,7 @@ export default function AboutPage() {
       <div className="flex w-full justify-center">
         <div className="max-w-4xl text-center mb-12">
           <p className="text-base text-muted-foreground leading-relaxed">
-            I'm passionate about solving complex frontend problems with a strong
+            I&apos;m passionate about solving complex frontend problems with a strong
             focus on <span className="font-semibold">Performance</span>,{" "}
             <span className="font-semibold">Scalability</span>,{" "}
             <span className="font-semibold">Future-proofing</span>, and{" "}
@@ -93,7 +93,7 @@ export default function AboutPage() {
             <span className="font-semibold">Test-Driven Development (TDD)</span>{" "}
             and comprehensive{" "}
             <span className="font-semibold">End-to-End testing</span> to ensure
-            robust, reliable applications. I'm particularly excited about the
+            robust, reliable applications. I&apos;m particularly excited about the
             potential of <span className="font-semibold">GenAI products</span>{" "}
             and how they can transform user experiences in the frontend space.
           </p>

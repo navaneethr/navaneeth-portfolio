@@ -62,7 +62,7 @@ export default function IndexPage() {
                     variants={fadeInUp}
                     className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
                   >
-                    Hi, I'm{" "}
+                    Hi, I&apos;m{" "}
                     <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                       Navaneeth
                     </span>
@@ -215,7 +215,7 @@ export default function IndexPage() {
                     </div>
                     <CardTitle className="text-xl">Contact</CardTitle>
                     <CardDescription>
-                      Let's connect and discuss opportunities or collaborations
+                      Let&apos;s connect and discuss opportunities or collaborations
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 mt-auto">
@@ -483,7 +483,7 @@ export default function IndexPage() {
             </h2>
             <p className="text-lg text-muted-foreground">
               Whether you need a frontend developer, have a project in mind, or
-              just want to connect, I'd love to hear from you.
+              just want to connect, I&apos;d love to hear from you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className={buttonVariants({ size: "lg" })}>
