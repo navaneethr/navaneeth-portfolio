@@ -19,7 +19,7 @@
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 38 92% 50%;           /* amber-500 */
+    --primary: 38 92% 50%; /* amber-500 */
     --primary-foreground: 0 0% 100%; /* white */
 
     --secondary: 210 40% 96.1%;
@@ -55,7 +55,7 @@
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
 
-    --primary: 38 92% 50%;           /* amber-500 */
+    --primary: 38 92% 50%; /* amber-500 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 222.2 47.4% 11.2%;
@@ -78,4 +78,41 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+/* Ticker animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes scroll-mobile {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  /* Ensure content flows continuously */
+  will-change: transform;
+}
+
+/* Mobile-specific animation */
+@media (max-width: 640px) {
+  .animate-scroll {
+    animation: scroll-mobile 20s linear infinite;
+  }
+}
+
+/* Pause animation on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
 }

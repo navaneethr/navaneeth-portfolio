@@ -2,170 +2,225 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { motion, useAnimationControls } from "framer-motion"
+import { Code, ExternalLink, Heart, TrendingUp } from "lucide-react"
 
-import { buttonVariants } from "@/components/ui/button"
-
-interface TickerItem {
-  text: string
-  link: string
+interface Project {
+  id: string
+  title: string
+  description: string
+  liveUrl: string
+  githubUrl: string
+  icon: React.ReactNode
+  color: string
 }
 
-interface TickerProps {
-  items?: TickerItem[]
-  className?: string
-}
+const featuredProjects: Project[] = [
+  {
+    id: "serenote-client",
+    title: "Serenote UI",
+    description: "AI-first mental health app with analytics",
+    liveUrl: "https://serenote-client.vercel.app/login",
+    githubUrl: "https://github.com/navaneethr/serenote-client",
+    icon: <Heart className="h-4 w-4" />,
+    color: "text-blue-500",
+  },
+  {
+    id: "serenote-server",
+    title: "Serenote Server",
+    description: "AI-first mental health app with analytics",
+    liveUrl: "https://serenote-client.vercel.app/login",
+    githubUrl: "https://github.com/navaneethr/serenote-server",
+    icon: <Heart className="h-4 w-4" />,
+    color: "text-blue-500",
+  },
+  {
+    id: "firecracker-gpt",
+    title: "Firecracker GPT",
+    description: "GenAI application with open-ended conversations",
+    liveUrl: "https://firecracker-gpt.vercel.app/",
+    githubUrl: "https://github.com/navaneethr/firecracker",
+    icon: <Code className="h-4 w-4" />,
+    color: "text-green-500",
+  },
+]
 
-export function Ticker({ items = [], className = "" }: TickerProps) {
-  const controls = useAnimationControls()
-  const [isHovered, setIsHovered] = useState(false)
-
-  // Default items if none provided
-  const defaultItems: TickerItem[] = [
-    {
-      text: "Convert Snake to Camel Case - JavaScript Interview Question",
-      link: "/blog/convert-snake-to-camel",
-    },
-    {
-      text: "You're Probably Better at Counter-Strike Than Your Friends",
-      link: "/blog/counter-strike-refresh-rate",
-    },
-    {
-      text: "The New York Story - A Personal Journey",
-      link: "/blog/the-new-york-story",
-    },
-    {
-      text: "FireCracker App - Interactive React Application",
-      link: "/portfolio",
-    },
-    {
-      text: "Portfolio Showcase - Featured Projects",
-      link: "/portfolio",
-    },
-    {
-      text: "Contact Me - Let's Build Something Amazing",
-      link: "/contact",
-    },
-  ]
-
-  const tickerItems = items.length > 0 ? items : defaultItems
+export function Ticker() {
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
-    // Start the animation when component mounts
-    controls.start({
-      x: ["0%", "-100%"],
-      transition: {
-        duration: 30,
-        repeat: Infinity,
-        ease: "linear",
-      },
-    })
-  }, [controls])
+    let lastScrollY = window.scrollY
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+      lastScrollY = currentScrollY
+    }
 
-  const handleMouseEnter = () => {
-    setIsHovered(true)
-    controls.stop()
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-    // Resume animation from current position
-    controls.start({
-      x: [null, "-100%"], // null means continue from current position
-      transition: {
-        duration: 30,
-        repeat: Infinity,
-        ease: "linear",
-      },
-    })
-  }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <section
-      className={`fixed top-0 left-0 right-0 z-50 w-full overflow-hidden bg-muted/50 backdrop-blur-sm border-b shadow-sm ${className}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 text-white transition-transform duration-300 w-screen ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
-      <div className="relative py-1 sm:py-1.5">
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={controls}
-          initial={{ x: "0%" }}
-        >
-          {/* First set */}
-          {tickerItems.map((item, index) => (
-            <Link
-              key={`set1-${index}`}
-              href={item.link}
-              onMouseEnter={() => controls.stop()}
-              onMouseLeave={() =>
-                controls.start({
-                  x: [null, "-100%"],
-                  transition: {
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                })
-              }
-              className={`${buttonVariants({
-                variant: "secondary",
-                size: "sm",
-              })} mx-1 px-2 py-1 text-xs h-auto min-h-0 whitespace-nowrap hover:bg-primary hover:text-primary-foreground transition-colors`}
-            >
-              {item.text}
-            </Link>
-          ))}
-          {/* Second set for seamless loop */}
-          {tickerItems.map((item, index) => (
-            <Link
-              key={`set2-${index}`}
-              href={item.link}
-              onMouseEnter={() => controls.stop()}
-              onMouseLeave={() =>
-                controls.start({
-                  x: [null, "-100%"],
-                  transition: {
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                })
-              }
-              className={`${buttonVariants({
-                variant: "secondary",
-                size: "sm",
-              })} mx-1 px-2 py-1 text-xs h-auto min-h-0 whitespace-nowrap hover:bg-primary hover:text-primary-foreground transition-colors`}
-            >
-              {item.text}
-            </Link>
-          ))}
-          {/* Third set for extra smoothness */}
-          {tickerItems.map((item, index) => (
-            <Link
-              key={`set3-${index}`}
-              href={item.link}
-              onMouseEnter={() => controls.stop()}
-              onMouseLeave={() =>
-                controls.start({
-                  x: [null, "-100%"],
-                  transition: {
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                })
-              }
-              className={`${buttonVariants({
-                variant: "secondary",
-                size: "sm",
-              })} mx-1 px-2 py-1 text-xs h-auto min-h-0 whitespace-nowrap hover:bg-primary hover:text-primary-foreground transition-colors`}
-            >
-              {item.text}
-            </Link>
-          ))}
-        </motion.div>
+      <div className="flex items-center justify-between px-4 py-2 text-sm w-full">
+        {/* Left side - Label */}
+        <div className="flex items-center space-x-2 font-semibold flex-shrink-0">
+          <TrendingUp className="h-4 w-4 animate-pulse" />
+          <span className="hidden sm:inline">Latest Projects</span>
+        </div>
+
+        {/* Center - Scrolling projects */}
+        <div className="flex-1 mx-8 overflow-hidden min-w-0">
+          <div className="flex animate-scroll space-x-16 relative w-full min-w-full">
+            {featuredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="flex items-center space-x-3 whitespace-nowrap flex-shrink-0 min-w-max"
+              >
+                <div className={project.color}>{project.icon}</div>
+                <span className="font-medium">{project.title}</span>
+                <span className="text-white/80 text-xs max-w-[200px] truncate">
+                  {project.description}
+                </span>
+                <div className="flex items-center space-x-2">
+                  <Link
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} live`}
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} source code`}
+                  >
+                    <Code className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+            {/* Large gap between sets */}
+            <div className="w-96 sm:w-96 w-48 flex-shrink-0"></div>
+            {featuredProjects.map((project) => (
+              <div
+                key={`${project.id}-duplicate`}
+                className="flex items-center space-x-3 whitespace-nowrap flex-shrink-0 min-w-max"
+              >
+                <div className={project.color}>{project.icon}</div>
+                <span className="font-medium">{project.title}</span>
+                <span className="text-white/80 text-xs max-w-[200px] truncate">
+                  {project.description}
+                </span>
+                <div className="flex items-center space-x-2">
+                  <Link
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} live`}
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} source code`}
+                  >
+                    <Code className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+            {/* Large gap between sets */}
+            <div className="w-96 sm:w-96 w-48 flex-shrink-0"></div>
+            {featuredProjects.map((project) => (
+              <div
+                key={`${project.id}-triplicate`}
+                className="flex items-center space-x-3 whitespace-nowrap flex-shrink-0 min-w-max"
+              >
+                <div className={project.color}>{project.icon}</div>
+                <span className="font-medium">{project.title}</span>
+                <span className="text-white/80 text-xs max-w-[200px] truncate">
+                  {project.description}
+                </span>
+                <div className="flex items-center space-x-2">
+                  <Link
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} live`}
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} source code`}
+                  >
+                    <Code className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+            {/* Large gap between sets */}
+            <div className="w-96 sm:w-96 w-48 flex-shrink-0"></div>
+            {featuredProjects.map((project) => (
+              <div
+                key={`${project.id}-quadruplicate`}
+                className="flex items-center space-x-3 whitespace-nowrap flex-shrink-0 min-w-max"
+              >
+                <div className={project.color}>{project.icon}</div>
+                <span className="font-medium">{project.title}</span>
+                <span className="text-white/80 text-xs max-w-[200px] truncate">
+                  {project.description}
+                </span>
+                <div className="flex items-center space-x-2">
+                  <Link
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} live`}
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-300 transition-colors"
+                    title={`View ${project.title} source code`}
+                  >
+                    <Code className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right side - Status */}
+        <div className="flex items-center space-x-2 text-xs flex-shrink-0 m-2">
+          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }

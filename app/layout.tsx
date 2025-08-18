@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { FeedbackDialog } from "@/components/feedback-dialog"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Ticker } from "@/components/ticker"
 
 export const metadata: Metadata = {
   title: {
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <ThemeProvider attribute="class" defaultTheme="dark">
             <div className="relative flex min-h-screen flex-col">
+              <Ticker />
               <SiteHeader />
               <div className="flex-1">{children}</div>
               <Toaster />

@@ -22,7 +22,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`bg-background sticky top-0 z-40 w-full transition-colors duration-300 ${
+      className={`bg-background sticky top-0 z-40 w-full transition-colors duration-300 mt-12 ${
         scrolled ? "backdrop-blur bg-background/80 shadow-md" : ""
       }`}
     >
