@@ -1,5 +1,43 @@
 export const githubProjects = [
   {
+    id: "serenote-client",
+    title: "Serenote Client",
+    description:
+      "Frontend for an AI-first mental health application that provides intelligent note-taking, mood tracking, and personalized insights. Built with React 19, Vite, and Tailwind CSS. Features comprehensive analytics dashboard, AI-powered questionnaire responses, and secure user authentication for mental health professionals and clients.",
+    tech: [
+      "React 19",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "React Hook Form",
+      "Zod",
+      "Radix UI",
+    ],
+    githubUrl: "https://github.com/navaneethr/serenote-client",
+    liveUrl: "https://serenote-client.vercel.app/login",
+    stars: 0,
+    forks: 0,
+  },
+  {
+    id: "serenote-server",
+    title: "Serenote Server",
+    description:
+      "Backend API server for an AI-first mental health platform built with Express.js and Supabase. Features AI integration with Fireworks AI for intelligent mental health assessments, comprehensive analytics and reporting, JWT authentication, real-time data processing, and secure HIPAA-compliant data handling for mental health professionals.",
+    tech: [
+      "Express.js",
+      "Supabase",
+      "Fireworks AI",
+      "JWT",
+      "SSE",
+      "CORS",
+      "Node.js",
+    ],
+    githubUrl: "https://github.com/navaneethr/serenote-server",
+    liveUrl: "https://serenote-server.vercel.app",
+    stars: 0,
+    forks: 0,
+  },
+  {
     id: "firecracker-gpt",
     title: "Firecracker GPT",
     description:

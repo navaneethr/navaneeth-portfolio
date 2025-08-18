@@ -5,8 +5,6 @@ date: "2023-03-20"
 tags: ["gaming", "counter-strike", "hardware", "refresh-rate", "performance"]
 ---
 
-# You're Probably Better at Counter-Strike Than Your Friends
-
 Ever wondered why your friends had higher kills than yourself?
 
 Well, sometimes, to put it in a harsh way, you might not be that great of a player at all. But, sometimes it is probably not your fault, it is probably your Monitor or your Laptop Screen.

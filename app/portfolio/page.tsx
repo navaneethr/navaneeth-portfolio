@@ -24,6 +24,17 @@ export default function PortfolioPage() {
           showcasing expertise in frontend engineering, React, TypeScript, and
           building modern, scalable web applications.
         </p>
+        <div className="mt-4">
+          <Link
+            href="https://github.com/navaneethr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={buttonVariants({ size: "lg" })}
+          >
+            <Icons.gitHub className="mr-2 h-5 w-5" />
+            GitHub
+          </Link>
+        </div>
       </div>
 
       {/* GitHub Projects Section */}

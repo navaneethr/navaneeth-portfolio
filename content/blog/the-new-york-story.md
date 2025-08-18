@@ -5,8 +5,6 @@ date: "2022-05-15"
 tags: ["travel", "personal", "nyc", "experience"]
 ---
 
-# The New York Story
-
 Growing up, all I knew about United States was the Statue of Liberty, when someone spoke about United States, all I thought was about the statue.
 
 As I grew up, I learnt that it is located in New York, as I read more and more about New York, I started falling in love with the city's vibe, lifestyle, hustle and obviously, its massive skyscrapers.

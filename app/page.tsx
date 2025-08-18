@@ -120,6 +120,17 @@ export default function IndexPage() {
                   >
                     View My Work
                   </Link>
+                  <a
+                    href="/resume.pdf"
+                    className={buttonVariants({
+                      variant: "outline",
+                      size: "lg",
+                    })}
+                    download
+                  >
+                    <Icons.fileText className="mr-2 h-4 w-4" />
+                    Resume
+                  </a>
                   <Link
                     href="https://firecracker-gpt.vercel.app/"
                     target="_blank"
@@ -524,14 +535,6 @@ export default function IndexPage() {
                 <Icons.mail className="mr-2 h-5 w-5" />
                 Contact Me
               </Link>
-              <a
-                href="/resume.pdf"
-                className={buttonVariants({ variant: "outline", size: "lg" })}
-                download
-              >
-                <Icons.fileText className="mr-2 h-5 w-5" />
-                Download Resume
-              </a>
               <Link
                 target="_blank"
                 rel="noreferrer"
