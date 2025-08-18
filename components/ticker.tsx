@@ -112,7 +112,7 @@ export function Ticker() {
               </div>
             ))}
             {/* Large gap between sets */}
-            <div className="w-96 sm:w-96 w-48 flex-shrink-0"></div>
+            <div className="w-48 sm:w-96 flex-shrink-0"></div>
             {featuredProjects.map((project) => (
               <div
                 key={`${project.id}-duplicate`}
@@ -146,7 +146,7 @@ export function Ticker() {
               </div>
             ))}
             {/* Large gap between sets */}
-            <div className="w-96 sm:w-96 w-48 flex-shrink-0"></div>
+            <div className="w-48 sm:w-96 flex-shrink-0"></div>
             {featuredProjects.map((project) => (
               <div
                 key={`${project.id}-triplicate`}
@@ -180,7 +180,7 @@ export function Ticker() {
               </div>
             ))}
             {/* Large gap between sets */}
-            <div className="w-96 sm:w-96 w-48 flex-shrink-0"></div>
+            <div className="w-48 sm:w-96 flex-shrink-0"></div>
             {featuredProjects.map((project) => (
               <div
                 key={`${project.id}-quadruplicate`}
