@@ -49,6 +49,24 @@ export const githubProjects = [
     forks: 0,
   },
   {
+    id: "row-column-virtualization",
+    title: "Row/Column Virtualized & Infinite Scroll Table",
+    description:
+      "A high-performance data table component featuring row and column virtualization with infinite scrolling capabilities. Optimized for handling large datasets with smooth scrolling and efficient memory usage. Perfect for displaying complex data tables with thousands of rows and columns.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Virtualization",
+      "Infinite Scroll",
+      "Performance",
+    ],
+    githubUrl:
+      "https://github.com/navaneethr/row-column-virtualization-infinite",
+    liveUrl: "https://row-column-virtualization-infinite.vercel.app/",
+    stars: 0,
+    forks: 0,
+  },
+  {
     id: "dog-catalog",
     title: "Dog Catalog",
     description:
