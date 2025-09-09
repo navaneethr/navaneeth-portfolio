@@ -61,7 +61,7 @@ export const githubProjects = [
       "Performance",
     ],
     githubUrl:
-      "https://github.com/navaneethr/row-column-virtualization-infinite",
+      "https://github.com/navaneethr/row-column-virtualization-infinite-scroll",
     liveUrl: "https://row-column-virtualization-infinite.vercel.app/",
     stars: 0,
     forks: 0,

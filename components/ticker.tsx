@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Code, ExternalLink, Heart, TrendingUp } from "lucide-react"
+import { Code, ExternalLink, Heart, Table, TrendingUp } from "lucide-react"
 
 interface Project {
   id: string
@@ -41,6 +41,16 @@ const featuredProjects: Project[] = [
     githubUrl: "https://github.com/navaneethr/firecracker",
     icon: <Code className="h-4 w-4" />,
     color: "text-green-500",
+  },
+  {
+    id: "row-column-virtualization",
+    title: "Virtualized Table",
+    description: "High-performance table with infinite scroll",
+    liveUrl: "https://row-column-virtualization-infinite.vercel.app/",
+    githubUrl:
+      "https://github.com/navaneethr/row-column-virtualization-infinite-scroll",
+    icon: <Table className="h-4 w-4" />,
+    color: "text-purple-500",
   },
 ]
 
