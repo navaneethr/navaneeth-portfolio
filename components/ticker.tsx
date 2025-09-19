@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Code, ExternalLink, Heart, Table, TrendingUp } from "lucide-react"
+import { Bot, Code, ExternalLink, Heart, Table, TrendingUp } from "lucide-react"
 
 interface Project {
   id: string
@@ -15,6 +15,15 @@ interface Project {
 }
 
 const featuredProjects: Project[] = [
+  {
+    id: "ai-ui-builder-poc",
+    title: "AI UI Builder",
+    description: "AI-driven component builder with data analysis",
+    liveUrl: "https://ai-ui-builder-poc.vercel.app/",
+    githubUrl: "https://github.com/navaneethr/ai-ui-builder-poc",
+    icon: <Bot className="h-4 w-4" />,
+    color: "text-orange-500",
+  },
   {
     id: "serenote-client",
     title: "Serenote UI",

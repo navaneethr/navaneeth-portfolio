@@ -1,5 +1,23 @@
 export const githubProjects = [
   {
+    id: "ai-ui-builder-poc",
+    title: "AI UI Builder POC",
+    description:
+      "An innovative AI-driven UI component builder with intelligent data analysis capabilities. Features an AI assistant that can answer data-driven questions once data is loaded. Designed to scale for parsing documents, connecting to CRMs, databases, and data warehouses. Users can customize dashboards and create multiple instances for comprehensive data visualization and analysis.",
+    tech: [
+      "AI/ML",
+      "React",
+      "TypeScript",
+      "Data Visualization",
+      "Dashboard Builder",
+      "Component Generation",
+    ],
+    githubUrl: "https://github.com/navaneethr/ai-ui-builder-poc",
+    liveUrl: "https://ai-ui-builder-poc.vercel.app/",
+    stars: 0,
+    forks: 0,
+  },
+  {
     id: "serenote-client",
     title: "Serenote Client",
     description:
