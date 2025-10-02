@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { codeSandboxProjects, githubProjects } from "@/data/portfolio"
 
+import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
@@ -50,9 +51,19 @@ export default function PortfolioPage() {
               className="flex flex-col h-full hover:shadow-lg transition-shadow duration-300"
             >
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg leading-snug">
-                  {project.title}
-                </CardTitle>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <CardTitle className="text-lg leading-snug">
+                    {project.title}
+                  </CardTitle>
+                  {project.status && (
+                    <Badge
+                      variant="secondary"
+                      className="bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-300 border-orange-200 dark:border-orange-800"
+                    >
+                      {project.status}
+                    </Badge>
+                  )}
+                </div>
                 <CardDescription className="text-sm leading-relaxed">
                   {project.description}
                 </CardDescription>
