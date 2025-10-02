@@ -2,7 +2,15 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Bot, Code, ExternalLink, Heart, Table, TrendingUp } from "lucide-react"
+import {
+  BarChart3,
+  Bot,
+  Code,
+  ExternalLink,
+  Heart,
+  Table,
+  TrendingUp,
+} from "lucide-react"
 
 interface Project {
   id: string
@@ -15,6 +23,15 @@ interface Project {
 }
 
 const featuredProjects: Project[] = [
+  {
+    id: "planalytics",
+    title: "Planalytics",
+    description: "Analytics dashboard for everyday users",
+    liveUrl: "https://planalytics.vercel.app/dashboards/DASH-001",
+    githubUrl: "https://github.com/navaneethr/planalytics",
+    icon: <BarChart3 className="h-4 w-4" />,
+    color: "text-cyan-500",
+  },
   {
     id: "ai-ui-builder-poc",
     title: "AI UI Builder",

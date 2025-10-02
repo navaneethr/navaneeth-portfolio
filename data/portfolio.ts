@@ -1,5 +1,24 @@
 export const githubProjects = [
   {
+    id: "planalytics",
+    title: "Planalytics",
+    description:
+      "An intuitive analytics dashboard platform designed to make data visualization accessible to everyday users. Features drag-and-drop UI components for creating custom dashboards, with support for multiple data sources including CSV, PDF, and future integrations with HubSpot, Stripe, and other data connectors. Users can arrange components, customize layouts, and view performance metrics in meaningful, actionable formats.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Data Visualization",
+      "Dashboard Builder",
+      "Drag & Drop",
+      "Analytics",
+    ],
+    githubUrl: "https://github.com/navaneethr/planalytics",
+    liveUrl: "https://planalytics.vercel.app/dashboards/DASH-001",
+    stars: 0,
+    forks: 0,
+    status: "Active Development",
+  },
+  {
     id: "ai-ui-builder-poc",
     title: "AI UI Builder POC",
     description:
